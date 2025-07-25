@@ -1,6 +1,6 @@
 @font-face {
-    font-family: "Norse-Bold";
-    src: url("Norse-Bold.otf");
+    font-family: "orbitron";
+    src: url("Orbitron-VariableFont_wght.ttf");
 }
 
 * {
@@ -9,8 +9,22 @@
     box-sizing: border-box;
 }
 
+:root {
+    --darkerBlue: rgb(0, 70, 100);
+    --hoverBlue: rgb(0, 130, 150);
+    --clickBlue: rgb(0, 150, 170);
+    --grey: rgb(230, 230 ,230);
+    --lighterGrey: rgb(245, 245, 245);
+    --shadow: grey;
+    --light: white;
+    --heading: burlywood;
+    --good: green;
+    --attention: red;
+}
+
 html {
-    font-size: 20px;
+    font-size: 24px;
+    font-weight: 600;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -18,18 +32,64 @@ body {
     display: flex;
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
 }
 
 h1 {
-    font-family: "Norse-Bold", Arial, Helvetica, sans-serif;
-    font-size: 4em;
-    color: burlywood;
-} 
+    font-family: "orbitron", Arial, Helvetica, sans-serif;
+    font-size: 4rem;
+    color: var(--heading);
+}
+
+label {
+    font-size: 0.6rem;
+}
+
+label:hover {
+    cursor: pointer;
+}
+
+input {
+    border: dashed 1px var(--grey);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+input:required {
+    border: solid 1px var(--grey);
+}
+
+input:not(:placeholder-shown) {
+    border-color: var(--good);
+}
+
+input:not(:placeholder-shown):invalid {
+    border-color: var(--attention);
+}
+
+input:focus {
+    outline: solid 2px var(--darkerBlue);
+    box-shadow: 2px 2px 5px var(--shadow);
+}
+
+a {
+    text-decoration: none;
+    color: var(--darkerBlue);
+}
+
+a:hover {
+    color: var(--hoverBlue);
+}
+
+a:active {
+    color: var(--clickBlue);
+}
 
 .image-container {
     flex: 1 1 40%;
     background-image: url("yinzhen_back1.png");
     background-position: center 10%;
+    background-size: auto 100%;
     position: relative;
 }
 
@@ -42,30 +102,79 @@ h1 {
     justify-content: center;
     align-items: center;;
     position: absolute;
-    top: 30%;
+    top: 18%;
 }
 
-.logo {
-    height: 4em;
-    width: 4em;
-}
-
-.create-acount {
-    margin: 10% 4%;
+.form-container {
+    padding: 16vh 0 16vh 0;
     flex: 1 1 60%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: var(--lighterGrey);
+    overflow-y: scroll;
 }
 
-form button {
+.form-container > * {
+    margin: 0 8% 4% 8%;
+}
+
+#create-account-form {
+    margin: 0 0 6% 0;
+    padding: 2% 8%;
+    box-shadow: 0 0 10px var(--shadow);
+    background-color: var(--light);
+    display: flex;
+    flex-direction: column;
+}
+
+#create-account-form > h2 {
+    margin-bottom: 3vh;
+    font-size: 1rem;
+}
+
+.inputs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2vw;
+}
+
+.input {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3vh;
+    gap: 5px;
+}
+
+button[form="create-account-form"] {
     width: 250px;
-    color: white;
-    font-size: 0.8em;
+    color: var(--light);
+    font-size: 0.7rem;
     font-weight: 800;
     border: none;
     padding: 12px 48px;
-    background-color: rgb(0, 70, 100);
+    background-color: var(--darkerBlue);
     border-radius: 8px;
-    box-shadow: 2px 2px 4px grey;
+    box-shadow: 2px 2px 4px var(--shadow);
+}
+
+button:focus {
+    border: none;
+    background-color: var(--hoverBlue);
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--hoverBlue);
+    cursor: pointer;
+}
+
+button:active {
+    background-color: var(--clickBlue);
+}
+
+.login {
+    font-size: 0.8rem;
+    font-weight: 500;
 }

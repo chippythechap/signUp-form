@@ -8,16 +8,83 @@
   </head>
   <body>
     <div class="image-container">
-        <div class="toned">
-            <img class="logo" src="yinzhen_logo1.png" alt="yinzhen-logo">
-            <h1>yinzhen</h1>
-        </div>
+      <div class="toned">
+        <h1>yinzhen</h1>
+      </div>
     </div>
-    <form class="create-acount">
-      <p>This is not yet areal online service! You know you need something like this in your life to help you realize your deepest dreams. Sign up <em>now</em> to get started.</p>
+    <div class="form-container">
+      <p>
+        This is not yet a real online service! You know you need something like
+        this in your life to help you realize your deepest dreams. Sign up
+        <em>now</em> to get started.
+      </p>
       <p>You <em>know</em> you want to.</p>
-      <button>Create Account</button>
-    </form>
+      <form id="create-account-form">
+        <h2>Let's do this!</h2>
+        <div class="inputs">
+          <div class="input">
+            <label for="firstName">FIRST NAME*</label>
+            <input
+              id="firstName"
+              name="firstName"
+              type="text"
+              pattern="(?=.*[A-Z])(?=.*[a-z]).+"
+              placeholder="Max"
+              required
+            />
+          </div>
+          <div class="input">
+            <label for="lastName">LAST NAME*</label>
+            <input
+              id="lastName"
+              name="lastName"
+              type="text"
+              pattern="(?=.*[A-Z])(?=.*[a-z]).+"
+              placeholder="Mustermann"
+              required
+            />
+          </div>
+          <div class="input">
+            <label for="email">EMAIL*</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="max.mustermann@muster.com"
+              required
+            />
+          </div>
+          <div class="input">
+            <label for="phoneNumber">PHONE NUMBER</label>
+            <input id="phoneNumber" name="phoneNumber" pattern="^[+\d]{7,15}$" type="tel" />
+          </div>
+          <div class="input">
+            <label for="password">PASSWORD*</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[#\?!@$%^&*\-_]).{8,}$"
+              placeholder="123"
+              required
+            />
+          </div>
+          <div class="input">
+            <label for="confirmPassword">CONFIRM PASSWORD*</label>
+            <input
+              id="confirmPassword"
+              name="confirmPassword"
+              type="password"
+              pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[#\?!@$%^&*\-_]).{8,}$"
+              placeholder="123"
+              required
+            />
+          </div>
+        </div>
+      </form>
+      <button form="create-account-form">Create Account</button>
+      <p class="login">Already have an account? <a href="#">Log in</a></p>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
